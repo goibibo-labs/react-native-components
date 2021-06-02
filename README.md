@@ -7,10 +7,12 @@ https://www.figma.com/file/8wxizvQ1u2RnV4WAaM1VuK/Host-App-Components
 ### Development Setup
 
 1. Clone the repository: `git clone https://github.com/goibibo-labs/react-native-components.git`
-2. Move to project: `cd react-native-components/RNComponents`
+2. Move to project: `cd react-native-components`
 3. Install dependencies: `yarn install`
-4. Start the Metro Server: `npx react-native start`
-5. Run android app (in a separate terminal): `react-native run-android`
+4. Move to App folder: `cd RNComponents`
+5. Install dependencies: `yarn install`
+6. Start the Metro Server: `npx react-native start`
+7. Run android app (in a separate terminal): `react-native run-android`
 
 You would be able to see all stories in App. 
 If you wish to control navigation from Browser, you can follow below commands-

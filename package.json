@@ -4,7 +4,15 @@
   "description": "Design library for react-native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "eslint": "7.14.0",
+    "husky": ">=6",
+    "lint-staged": ">=10"
   },
   "repository": {
     "type": "git",
@@ -20,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/goibibo-labs/react-native-components/issues"
   },
-  "homepage": "https://github.com/goibibo-labs/react-native-components#readme"
+  "homepage": "https://github.com/goibibo-labs/react-native-components#readme",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }
