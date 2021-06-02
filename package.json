@@ -1,0 +1,24 @@
+{
+  "name": "react-native-components",
+  "version": "1.0.0",
+  "description": "Design library for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goibibo-labs/react-native-components.git"
+  },
+  "keywords": [
+    "react-native-components",
+    "react-native-design-components",
+    "react-native-libs"
+  ],
+  "author": "Varun Kumar <varun.kumar2@go-mmt.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goibibo-labs/react-native-components/issues"
+  },
+  "homepage": "https://github.com/goibibo-labs/react-native-components#readme"
+}
