@@ -23,3 +23,30 @@ If you wish to control navigation from Browser, you can follow below commands-
 This will open http://localhost:7007/ in Browser where you can see Navigator.
 Not that this will still show Preview on App & not on Web but from here you can control Navigator.
 
+### Development Guidelines
+
+1. Always declare `propTypes` & `defaultProps`
+2. Every component must accept `style` prop
+3. Always specify the underlying react-native element's proptypes and pass the `remainingProps` to it
+```
+Text.propTypes = {
+  ...RNText.propTypes,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ])
+}
+```
+```
+return (
+  <RNText style={[...textStyles, style]} {...remainingProps}>
+    {children}
+  </RNText>
+)
+```
+4. Always specify the story of your component in Storybook with diverse variations: https://storybook.js.org/docs/react/writing-stories/introduction
+
+### Screenshots
+
+<img src="./screenshots/storybook-drawer.png" width="240" /> <img src="./screenshots/storybook-preview.png" width="240" />
