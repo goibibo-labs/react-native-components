@@ -4,6 +4,14 @@ Design library for react-native
 ### Design guide
 https://www.figma.com/file/8wxizvQ1u2RnV4WAaM1VuK/Host-App-Components
 
+### How to use
+
+1. `yarn add git+ssh://git@github.com:goibibo-labs/react-native-components.git`
+2. Start using components
+```
+import { Text, Heading } from 'react-native-components';
+```
+
 ### Development Setup
 
 1. Clone the repository: `git clone https://github.com/goibibo-labs/react-native-components.git`
