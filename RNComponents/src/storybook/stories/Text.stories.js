@@ -12,6 +12,9 @@ const boldProps = {
   bold: true
 };
 
+const darkProps = {
+  dark: true
+};
 const lightProps = {
   light: true
 };
@@ -24,5 +27,6 @@ storiesOf('Text', module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
   .add('regular', () => <Template />)
   .add('bold', () => <Template {...boldProps} />)
+  .add('dark', () => <Template {...darkProps} />)
   .add('light', () => <Template {...lightProps} />)
   .add('small', () => <Template {...smallProps} />);

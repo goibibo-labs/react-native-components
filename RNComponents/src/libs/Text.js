@@ -2,27 +2,33 @@ import React from 'react';
 import { Text as RNText, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-const TEXT_COLORS = {
-  REGULAR: '#4a4a4a'
-};
+import { COLORS } from './colors';
+import { normalizeFontSize } from './util';
 
 const Text = props => {
-  const { style, bold, light, small, children, ...remainingProps } = props;
+  const { style, bold, light, dark, small, children, ...remainingProps } =
+    props;
 
   const textStyles = [styles.style];
 
   if (bold) {
     textStyles.push(styles.latoBold);
-  } else if (light) {
-    textStyles.push(styles.latoLight);
   } else {
     textStyles.push(styles.latoRegular);
+  }
+
+  if (dark) {
+    textStyles.push(styles.dark);
+  } else if (light) {
+    textStyles.push(styles.light);
+  } else {
+    textStyles.push(styles.regular);
   }
 
   if (small) {
     textStyles.push(styles.fontSize12);
   } else {
-    textStyles.push(styles.fontSize15);
+    textStyles.push(styles.fontSize14);
   }
 
   return (
@@ -34,12 +40,8 @@ const Text = props => {
 
 Text.propTypes = {
   ...RNText.propTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ]),
   bold: PropTypes.bool,
+  dark: PropTypes.bool,
   light: PropTypes.bool,
   small: PropTypes.bool
 };
@@ -55,17 +57,22 @@ const styles = StyleSheet.create({
   latoRegular: {
     fontFamily: 'Lato-Regular'
   },
-  latoLight: {
-    fontFamily: 'Lato-Light'
+  light: {
+    color: COLORS.TEXT.LIGHT
   },
-  fontSize15: {
-    fontSize: 15
+  dark: {
+    color: COLORS.TEXT.DARK
+  },
+  regular: {
+    color: COLORS.TEXT.MEDIUM
+  },
+  fontSize14: {
+    fontSize: normalizeFontSize(14)
   },
   fontSize12: {
-    fontSize: 12
+    fontSize: normalizeFontSize(12)
   },
   style: {
-    color: TEXT_COLORS.REGULAR,
     lineHeight: 22
   }
 });
