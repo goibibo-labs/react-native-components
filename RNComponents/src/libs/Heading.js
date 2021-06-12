@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 // don't do import { Text } from './index' to avoid require cycle
 import Text from './Text';
+import { normalizeFontSize } from './util';
+import { COLORS } from './colors';
 
 const HEADING_TYPES = {
   H1: 'h1',
@@ -11,16 +13,12 @@ const HEADING_TYPES = {
   H4: 'h4'
 };
 
-const HEADING_COLORS = {
-  REGULAR: '#121212'
-};
-
 const Heading = props => {
   const { style, type, children, ...remainingProps } = props;
 
   const headingStyles = [
     {
-      color: HEADING_COLORS.REGULAR
+      color: COLORS.TEXT.MEDIUM
     }
   ];
   const headingProps = {};
@@ -28,7 +26,7 @@ const Heading = props => {
   switch (type) {
     case HEADING_TYPES.H1: {
       headingStyles.push({
-        fontSize: 25,
+        fontSize: normalizeFontSize(25),
         lineHeight: 37
       });
       break;
@@ -36,7 +34,7 @@ const Heading = props => {
     case HEADING_TYPES.H2: {
       headingProps.bold = true;
       headingStyles.push({
-        fontSize: 21,
+        fontSize: normalizeFontSize(21),
         lineHeight: 31
       });
       break;
@@ -44,7 +42,7 @@ const Heading = props => {
     case HEADING_TYPES.H3: {
       headingProps.bold = true;
       headingStyles.push({
-        fontSize: 18,
+        fontSize: normalizeFontSize(18),
         lineHeight: 21
       });
       break;
@@ -52,7 +50,7 @@ const Heading = props => {
     case HEADING_TYPES.H4: {
       headingProps.bold = true;
       headingStyles.push({
-        fontSize: 17,
+        fontSize: normalizeFontSize(17),
         lineHeight: 25
       });
       break;
@@ -72,11 +70,6 @@ const Heading = props => {
 
 Heading.propTypes = {
   ...Text.propTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ]),
   type: PropTypes.oneOf(Object.values(HEADING_TYPES))
 };
 
