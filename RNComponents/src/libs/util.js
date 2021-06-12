@@ -7,7 +7,6 @@ const scale = SCREEN_WIDTH / 320;
 
 export const normalizeFontSize = size => {
   const newSize = size * scale;
-  console.log(newSize);
   const roundedSize = Math.round(PixelRatio.roundToNearestPixel(newSize));
   if (Platform.OS === 'ios') {
     return roundedSize;
