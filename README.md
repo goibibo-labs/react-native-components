@@ -34,17 +34,16 @@ Not that this will still show Preview on App & not on Web but from here you can 
 ### Development Guidelines
 
 1. Always declare `propTypes` & `defaultProps`
-2. Every component must accept `style` prop
+2. Every container component must accept `style` prop
 3. Always specify the underlying react-native element's proptypes and pass the `remainingProps` to it
 ```
 Text.propTypes = {
   ...RNText.propTypes,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-    PropTypes.array
-  ])
-}
+  bold: PropTypes.bool,
+  dark: PropTypes.bool,
+  light: PropTypes.bool,
+  small: PropTypes.bool
+};
 ```
 ```
 return (
