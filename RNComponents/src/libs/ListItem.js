@@ -1,58 +1,57 @@
 import React from 'react';
-import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { GenericStyles } from './styles';
 import { COLORS } from './colors';
 
-import Card from './Card';
-import Icon from './icon/Icon';
-import Heading from './Heading';
 import Text from './Text';
+import Icon from './icon/Icon';
+import { normalizeFontSize } from './util';
 
-const CardItem = props => {
+const ListItem = props => {
   const {
     style,
-    elevation,
     title,
     titleStyle,
     subtitle,
     subtitleStyle,
-    ThumbnailComponent,
     onPress,
     FooterComponent
   } = props;
 
   return (
-    <Card style={style} elevation={elevation}>
-      <TouchableOpacity onPress={onPress} style={GenericStyles.row}>
-        {ThumbnailComponent}
+    <View style={[styles.container, style]}>
+      <TouchableOpacity style={GenericStyles.row} onPress={onPress}>
         <View style={GenericStyles.fill}>
-          <Heading type={'h4'} dark style={titleStyle}>
+          <Text bold style={[styles.titleStyle, titleStyle]}>
             {title}
-          </Heading>
+          </Text>
           {subtitle ? (
-            <Text light style={subtitleStyle}>
+            <Text small style={subtitleStyle}>
               {subtitle}
             </Text>
           ) : null}
         </View>
-        <View style={GenericStyles.justifyContentCenter}>
+        <View>
           <Icon name={'right'} style={styles.rightIcon} />
         </View>
       </TouchableOpacity>
       {FooterComponent}
-    </Card>
+    </View>
   );
 };
 
-CardItem.defaultProps = {
-  ThumbnailComponent: null,
+ListItem.defaultProps = {
   FooterComponent: null
 };
 
-CardItem.propTypes = {
-  ...Card.propTypes,
+ListItem.propTypes = {
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
   title: PropTypes.string.isRequired,
   titleStyle: PropTypes.oneOfType([
     PropTypes.object,
@@ -66,14 +65,20 @@ CardItem.propTypes = {
     PropTypes.array
   ]),
   onPress: PropTypes.func.isRequired,
-  ThumbnailComponent: PropTypes.element,
   FooterComponent: PropTypes.element
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 12,
+    backgroundColor: COLORS.BACKGROUND.WHITE
+  },
+  titleStyle: {
+    fontSize: normalizeFontSize(15)
+  },
   rightIcon: {
     color: COLORS.SECONDARY.DEFAULT
   }
 });
 
-export default CardItem;
+export default ListItem;

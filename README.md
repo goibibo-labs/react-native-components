@@ -53,6 +53,7 @@ return (
 )
 ```
 4. Always specify the story of your component in Storybook with diverse variations: https://storybook.js.org/docs/react/writing-stories/introduction
+5. Define your own styles in storybook modules, do not pick styles from `GenericStyles`
 
 ### Screenshots
 
