@@ -1,18 +1,20 @@
-import React from 'react';
-import {TextProps} from "react-native";
+import * as React from "react";
+import * as ReactNative from "react-native";
 
 export function normalizeFontSize(size: number): number;
 
-export const Text: React.FC<{
+type TextProps = ReactNative.TextProps & {
   bold?: boolean;
   dark?: boolean;
   light?: boolean;
   small?: boolean;
-} | TextProps>;
+};
+export const Text: React.FC<TextProps>;
 
-export const Heading: React.FC<{
+type HeadingProps = TextProps & {
   type: 'h1' | 'h2' | 'h3' | 'h4'
-} | TextProps>;
+};
+export const Heading: React.FC<HeadingProps>;
 
 export const NavigationHeader: React.FC<{
   title: string;
@@ -24,15 +26,28 @@ export const NavigationHeader: React.FC<{
   style?: Array<object> | object | number;
 }>;
 
-export const Icon: React.FC<{
+type IconProps = ReactNative.TextProps & {
   name: string;
   size?: number;
   color?: string;
-} | TextProps>;
+}
+export const Icon: React.FC<IconProps>;
 
-export const Card: React.FC<{
+type CardProps = {
   elevation?: number;
   style?: Array<object> | object | number;
-}>;
+};
+export const Card: React.FC<CardProps>;
 
 export function getShadowStyle(size: number): object;
+
+type CardItemProps = CardProps & {
+  title: string;
+  titleStyle?: Array<object> | object | number;
+  subtitle?: string;
+  subtitleStyle?: Array<object> | object | number;
+  ThumbnailComponent?: React.ReactElement;
+  FooterComponent?: React.ReactElement;
+  onPress: () => void
+};
+export const CardItem: React.FC<CardItemProps>;
