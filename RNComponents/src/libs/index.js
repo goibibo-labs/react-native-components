@@ -6,6 +6,7 @@ import { normalizeFontSize } from './util';
 import Card from './Card';
 import CardItem from './CardItem';
 import Divider from './Divider';
+import ListItem from './ListItem';
 
 export {
   Text,
@@ -15,5 +16,6 @@ export {
   normalizeFontSize,
   Card,
   CardItem,
-  Divider
+  Divider,
+  ListItem
 };

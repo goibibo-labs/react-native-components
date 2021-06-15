@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactNative from "react-native";
+import * as React from 'react';
+import * as ReactNative from 'react-native';
 
 export function normalizeFontSize(size: number): number;
 
@@ -12,7 +12,7 @@ type TextProps = ReactNative.TextProps & {
 export const Text: React.FC<TextProps>;
 
 type HeadingProps = TextProps & {
-  type: 'h1' | 'h2' | 'h3' | 'h4'
+  type: 'h1' | 'h2' | 'h3' | 'h4';
 };
 export const Heading: React.FC<HeadingProps>;
 
@@ -30,7 +30,7 @@ type IconProps = ReactNative.TextProps & {
   name: string;
   size?: number;
   color?: string;
-}
+};
 export const Icon: React.FC<IconProps>;
 
 type CardProps = {
@@ -48,7 +48,7 @@ type CardItemProps = CardProps & {
   subtitleStyle?: Array<object> | object | number;
   ThumbnailComponent?: React.ReactElement;
   FooterComponent?: React.ReactElement;
-  onPress: () => void
+  onPress: () => void;
 };
 export const CardItem: React.FC<CardItemProps>;
 
@@ -56,3 +56,14 @@ export const Divider: React.FC<{
   style?: Array<object> | object | number;
   dark?: boolean;
 }>;
+
+type ListItemProps = CardProps & {
+  style?: Array<object> | object | number;
+  title: string;
+  titleStyle?: Array<object> | object | number;
+  subtitle?: string;
+  subtitleStyle?: Array<object> | object | number;
+  FooterComponent?: React.ReactElement;
+  onPress: () => void;
+};
+export const ListItem: React.FC<ListItemProps>;
