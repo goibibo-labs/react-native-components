@@ -51,3 +51,8 @@ type CardItemProps = CardProps & {
   onPress: () => void
 };
 export const CardItem: React.FC<CardItemProps>;
+
+export const Divider: React.FC<{
+  style?: Array<object> | object | number;
+  dark?: boolean;
+}>;
