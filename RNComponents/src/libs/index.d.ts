@@ -29,3 +29,10 @@ export const Icon: React.FC<{
   size?: number;
   color?: string;
 } | TextProps>;
+
+export const Card: React.FC<{
+  elevation?: number;
+  style?: Array<object> | object | number;
+}>;
+
+export function getShadowStyle(size: number): object;

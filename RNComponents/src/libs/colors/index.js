@@ -4,9 +4,15 @@ const TEXT = {
   LIGHT: '#9B9B9B'
 };
 
+const SHADOW = {
+  LIGHT: '#EBEBEB',
+  DARK: '#D4D4D4'
+};
+
 const BACKGROUND = {
   SILVER: '#F2F2F2',
-  WHITE: '#FFFFFF'
+  WHITE: '#FFFFFF',
+  TRANSPARENT: 'transparent'
 };
 
 const DIVIDER = {
@@ -35,6 +41,7 @@ export const GRADIENT = {
 
 export const COLORS = {
   TEXT,
+  SHADOW,
   BACKGROUND,
   DIVIDER,
   PRIMARY,
